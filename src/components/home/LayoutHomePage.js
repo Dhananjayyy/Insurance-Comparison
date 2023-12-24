@@ -6,17 +6,19 @@ import HomePageMain from "./HomePage";
 import Support from "./Support";
 import LoginForm from "../LoginForm";
 import Registration from "../RegistrationForm";
-import ForgotPassword from "../ForgotPassword";
+import Insurance from "./Insurance";
+import InsuranceProviders from "./InsuranceProviders";
 
 export default function MainHomePage() {
   const [selectedLink, setSelectedLink] = useState(null);
+  // const mystate = useSelector((state) => state.logged);
 
   const renderComponent = () => {
     switch (selectedLink) {
-      case "CarInsurance":
-        return <CarInsurance />;
-      case "BikeInsurance":
-        return <BikeInsurance />;
+      case "Insurance":
+        return <Insurance />;
+      case "InsuranceProviders":
+        return <InsuranceProviders />;
       case "Support":
         return <Support />;
       case "Login":
@@ -30,6 +32,7 @@ export default function MainHomePage() {
 
   return (
     <div className="container mt-3">
+      {/* login state: {mystate.loggedIn.toString()} */}
       <ul className="nav navbar container border rounded navbar-nav justify-content-center mb-5">
         <div className="row w-100">
           {/* Home Link */}
@@ -52,7 +55,7 @@ export default function MainHomePage() {
               <Link
                 className="nav-link"
                 onClick={() => {
-                  setSelectedLink("CarInsurance");
+                  setSelectedLink("Insurance");
                 }}
               >
                 Insurance
@@ -66,7 +69,7 @@ export default function MainHomePage() {
               <Link
                 className="nav-link"
                 onClick={() => {
-                  setSelectedLink("BikeInsurance");
+                  setSelectedLink("InsuranceProviders");
                 }}
               >
                 Providers

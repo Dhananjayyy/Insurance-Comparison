@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import Logout from "../logout";
 
 export default function ProviderHome() {
   //const id = props.id;
@@ -12,9 +11,7 @@ export default function ProviderHome() {
       <h1>Provider Home</h1>
       prop: {data.id}
       {mystate.loggedIn.toString()}
-      <div className={mystate.loggedIn ? "d-block" : "d-none"}>
-        <Logout />
-      </div>
+      
     </div>
   );
 }

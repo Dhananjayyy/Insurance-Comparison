@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { login } from "./loggedslice";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ForgotPassword from "./ForgotPassword";
 
 
 export default function LoginForm() {
@@ -74,7 +73,7 @@ export default function LoginForm() {
           }
           if (parseInt(srole) === 1) {
             dispatch(login());
-            navigate("/AdminHome", {state: {"id": data.result[0].AdminID}});
+            navigate("/adminhome", {state: {"id": data.result[0].AdminID}});
           }
           if (parseInt(srole) === 2) {
             dispatch(login());
