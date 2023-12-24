@@ -22,9 +22,9 @@ export default function MainHomePage() {
       case "Support":
         return <Support />;
       case "Login":
-        return <LoginForm/>
+        return <LoginForm state={{show: true}} />;
       case "Register":
-        return <Registration/>
+        return <Registration />;
       default:
         return <HomePageMain />;
     }

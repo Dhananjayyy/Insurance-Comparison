@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { login } from "./loggedslice";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import ForgotPassword from "./ForgotPassword";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -11,10 +11,9 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   // const [isValidEmail, setIsValidEmail] = useState(false);
   const [dispMsg, setDispMsg] = useState("");
+  const [hideLogin, setHideLogin] = useState(false);
+  const [forgotPasswordComponent, setForgotPasswordComponent] = useState(true);
 
-  
-
-  
 
   useEffect(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -89,8 +88,18 @@ export default function LoginForm() {
       });
     
   };
+
+function handleLoginSwap(){
+  setHideLogin(true);
+  setForgotPasswordComponent(false)
+}
+ 
+
+
   return (
-    <div className="container mt-5 border border-dark rounded p-3 w-50">
+    <div>
+    <div className={`${forgotPasswordComponent ? "d-none" : "d-block"}`}> <ForgotPassword/></div>
+    <div className={`${hideLogin ? "d-none" : "d-block"} container mt-5 border border-dark rounded p-3 w-50 `}>
       <div className=" mb-3 display-5 text-center">LOGIN</div>
       <form className="mt-4">
         <div className="form-group">
@@ -188,11 +197,12 @@ export default function LoginForm() {
          
         </div>
         <div className="text-center mt-3">
-          <Link to="/forgotpassword" style={{ textDecoration: "none" }}>
+          <Link onClick={()=>{handleLoginSwap()}} style={{ textDecoration: "none" }}>
             Forgot Password?
           </Link> 
         </div>
       </form>
+    </div>
     </div>
   );
 }
