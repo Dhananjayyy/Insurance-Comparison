@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import LoginForm from './LoginForm';
 import { useLocation, useNavigate } from 'react-router-dom';
+import MainHomePage from './home/LayoutHomePage';
 
 
 function ForgotPassword() {
@@ -106,7 +107,7 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="container mt-5 border border-dark rounded p-3 w-25">
+    <div className="container mt-5 border border-dark rounded p-3 w-50">
   <div className=" mb-3 display-5 text-center">Update Password</div>
   <form>
     <div className="mb-3 border  border-color bg-light rounded p-2">
@@ -153,15 +154,7 @@ function ForgotPassword() {
       >
         Submit
       </button>
-      <button
-        type="button"
-        className="btn w-25 btn-outline-danger"
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        Cancel
-      </button>
+      
     </div>
     
   </form>

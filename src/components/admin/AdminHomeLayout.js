@@ -1,34 +1,36 @@
 import { useDispatch} from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
-import MyInsurances from "./MyInsurances";
-import UserHomePage from "./UserHomePage";
-import PersonalPlans from "./PersonalPlans";
-import VehicleAnalysis from "./VehicleAnalysis";
-import { logout } from "../loggedslice";
+import {logout} from '../loggedslice'
+import AdminHomePage from "./AdminHomePage";
+import EditData from "./EditData";
+import ChangeRequests from "./ChangeRequests";
+import EditHistory from "./EditHistory";
 
-export default function UserHome(props) {
-  let navigate = useNavigate();
+export default function AdminHomeLayout(props) {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
   const [selectedLink, setSelectedLink] = useState(null);
   //setSelectedLink(props.comp)
 
   const handleLinkClick = (link) => {
+    dispatch(logout())
     setSelectedLink(link);
   };
 
   const renderComponent = () => {
     switch (selectedLink) {
       case "home":
-        return <UserHomePage/>
-      case "myinsurances":
-        return <MyInsurances />;
-      case "personalplans":
-        return <PersonalPlans/>
-      case "vehicleanalysis":
-        return <VehicleAnalysis/>
+        return <AdminHomePage/>
+      case "editdata":
+        return <EditData/>;
+      case "changerequests":
+        return <ChangeRequests/>
+      case "history":
+        return <EditHistory/>
       default:
-        return <UserHomePage/>;
+        return <AdminHomePage/>;
     }
   };
 
@@ -49,7 +51,7 @@ export default function UserHome(props) {
                   className="nav-link"
                   onClick={() => handleLinkClick('home')}
                 >
-                  Home
+                  Admin Home
                 </Link>
               </li>
             </div>
@@ -58,9 +60,9 @@ export default function UserHome(props) {
               <li className="nav-item ">
                 <Link
                   className="nav-link"
-                  onClick={() => handleLinkClick('myinsurances')}
+                  onClick={() => handleLinkClick('editdata')}
                 >
-                  My Insurances
+                  Edit Data
                 </Link>
               </li>
             </div>
@@ -69,9 +71,9 @@ export default function UserHome(props) {
               <li className="nav-item ">
                 <Link
                   className="nav-link"
-                  onClick={() => handleLinkClick('personalplans')}
+                  onClick={() => handleLinkClick('changerequests')}
                 >
-                  Personal Plans
+                  Change Requests
                 </Link>
               </li>
             </div>
@@ -80,15 +82,15 @@ export default function UserHome(props) {
               <li className="nav-item ">
                 <Link
                   className="nav-link"
-                  onClick={() => handleLinkClick('vehicleanalysis')}
+                  onClick={() => handleLinkClick('history')}
                 >
-                  Vehicle Analysis
+                  History 
                 </Link>
               </li>
             </div>     
             <div className="col text-center">
               <li className="nav-item">
-              <button className="btn btn-outline-danger" onClick={handleLogout}>
+                <button className="btn btn-outline-danger" onClick={handleLogout}>
                   Logout
                 </button>
               </li>
