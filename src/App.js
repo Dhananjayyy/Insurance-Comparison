@@ -13,8 +13,10 @@ import Registration from "./components/RegistrationForm";
 import MyInsurances from "./components/user/MyInsurances";
 import AdminHomePage from "./components/admin/AdminHomePage";
 import AdminHomeLayout from "./components/admin/AdminHomeLayout";
+import { useSelector } from "react-redux";
 
 export default function App() {
+  //const logintype = useSelector((state) => state.logged.userType);
   return (
     <>
       <Routes>
@@ -31,6 +33,7 @@ export default function App() {
         <Route path="/Support" element={<Support />} />
 
         <Route path="/adminhome" element={<AdminHomeLayout />} />
+        <Route path="/myinsurances" element={<MyInsurances />} />
         
         <Route
           path="/"
@@ -41,7 +44,7 @@ export default function App() {
           }
         />
 
-        <Route path="/myinsurances" element={<MyInsurances />} />
+        
       </Routes>
     </>
   );

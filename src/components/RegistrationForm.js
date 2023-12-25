@@ -401,7 +401,7 @@ export default function Registration() {
           </div>
           <div className="col">
             <button
-              className="btn btn-outline-dark col-6"
+              className="btn btn-outline-danger col-6"
               type="reset"
               onClick={() => {
                 handleReset();

@@ -67,15 +67,15 @@ export default function LoginForm(props) {
         var login_status = data.login_status
         if (login_status) {
           if (parseInt(srole) === 0) {
-            dispatch(login());
+            dispatch(login({ id:data.result[0].UserID, userType:'user' }));
             navigate("/userhome", {state: {"id": data.result[0].UserID}});
           }
           if (parseInt(srole) === 1) {
-            dispatch(login());
+            dispatch(login({ id:data.result[0].AdminID, userType:'admin' }));
             navigate("/adminhome", {state: {"id": data.result[0].AdminID}});
           }
           if (parseInt(srole) === 2) {
-            dispatch(login());
+            dispatch(login({ id:data.result[0].ProviderID, userType:'provider' }));
             navigate("/ProviderHome", {state: {"id": data.result[0].ProviderID}});
           }
         }else{
