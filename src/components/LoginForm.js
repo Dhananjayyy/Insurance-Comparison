@@ -15,9 +15,6 @@ export default function LoginForm(props) {
   const [hideLogin, setHideLogin] = useState(false);
   const [forgotPasswordComponent, setForgotPasswordComponent] = useState(true);
 
-  console.log("Passed prop: "+JSON.stringify(props.state.show));
-  //setHideLogin(props.state.show);
-
   useEffect(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     // setIsValidEmail(emailRegex.test(email));
@@ -197,13 +194,11 @@ function handleLoginSwap(){
           >
             Login
           </button>
-          <button
+          <button type="reset"
             className="btn btn-outline-danger w-25 mx-2"
-            onClick={() => {
-              navigate("/");
-            }}
+            
           >
-            Cancel
+            Clear
           </button>
          
         </div>

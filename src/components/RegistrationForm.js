@@ -115,7 +115,7 @@ export default function Registration() {
         }
         break;
       case "email":
-        pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        pattern = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,}$/;
         if (!pattern.test(value)) {
           valid = false;
           error = "Invalid Email";
