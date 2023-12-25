@@ -91,8 +91,8 @@ export default function LoginForm(props) {
 
 
 
-function handleLoginSwap(){
-  if(props.state.show){
+function handleLoginForgotSwap(){
+  if(props.state.showForgotPasswordComponent){
     setHideLogin(true);
     setForgotPasswordComponent(false)
     return;
@@ -203,7 +203,8 @@ function handleLoginSwap(){
          
         </div>
         <div className="text-center mt-3">
-          <Link onClick={()=>{handleLoginSwap()}} style={{ textDecoration: "none" }}>
+          
+          <Link onClick={()=>{handleLoginForgotSwap()}} style={{ textDecoration: "none" }}>
             Forgot Password?
           </Link> 
         </div>

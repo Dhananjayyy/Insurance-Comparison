@@ -40,13 +40,13 @@ export default function UserHome(props) {
   return (
     <div className="container mt-3">
       <div>
-        <ul className="nav navbar container border rounded navbar-nav justify-content-center">
+        <ul className="nav navbar nav-pills container border rounded navbar-nav justify-content-center">
           <div className="row w-100">
 
             <div className="col text-center">
               <li className="nav-item">
                 <Link
-                  className="nav-link"
+                  className={`nav-link ${selectedLink === "home" ? 'active text-white bg-dark' : ''}`}
                   onClick={() => handleLinkClick('home')}
                 >
                   Home
@@ -57,7 +57,7 @@ export default function UserHome(props) {
             <div className="col text-center">
               <li className="nav-item ">
                 <Link
-                  className="nav-link"
+                  className={`nav-link ${selectedLink === "myinsurances" ? 'active text-white bg-dark' : ''}`}
                   onClick={() => handleLinkClick('myinsurances')}
                 >
                   My Insurances
@@ -68,7 +68,7 @@ export default function UserHome(props) {
             <div className="col text-center">
               <li className="nav-item ">
                 <Link
-                  className="nav-link"
+                  className={`nav-link ${selectedLink === "personalplans" ? 'active text-white bg-dark' : ''}`}
                   onClick={() => handleLinkClick('personalplans')}
                 >
                   Personal Plans
@@ -79,7 +79,7 @@ export default function UserHome(props) {
             <div className="col text-center">
               <li className="nav-item ">
                 <Link
-                  className="nav-link"
+                  className={`nav-link ${selectedLink === "vehicleanalysis" ? 'active text-white bg-dark' : ''}`}
                   onClick={() => handleLinkClick('vehicleanalysis')}
                 >
                   Vehicle Analysis

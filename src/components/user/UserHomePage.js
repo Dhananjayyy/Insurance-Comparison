@@ -33,8 +33,8 @@ export default function UserHomePage() {
 
   return (
     <div className="mt-3">
-      <h1>Welcome {userdata[0].Name}</h1>
-      From store: {uid + " " + login.toString() + " " + type}
+      <h1>Welcome {userdata[0].Name} !</h1>
+      From store: {"id: " + uid  + ", loggedIn: " + login.toString() + ", userType: " + type}
     </div>
   );
 }

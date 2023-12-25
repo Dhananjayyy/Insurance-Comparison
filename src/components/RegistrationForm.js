@@ -43,7 +43,6 @@ export default function Registration() {
   const [errorMsg, setErrorMsg] = useState("");
   const [alertType, setAlertType] = useState("danger");
 
-
   function showErrorMessage(msg, time) {
     setDisplayAlert(true);
     setErrorMsg(msg);
@@ -252,7 +251,7 @@ export default function Registration() {
                 type="text"
                 className="form-control"
                 id="idfname"
-                placeholder="Dhananjay"
+                placeholder="Mark"
                 onChange={(e) => handleChange("fname", e.target.value)}
                 onBlur={(e) => handleChange("fname", e.target.value)}
                 w-25
@@ -272,7 +271,7 @@ export default function Registration() {
                 type="text"
                 className="form-control"
                 id="idlname"
-                placeholder="Yelwande"
+                placeholder="Zuckerberg"
                 onChange={(e) => handleChange("lname", e.target.value)}
                 onBlur={(e) => handleChange("lname", e.target.value)}
               />
@@ -295,7 +294,7 @@ export default function Registration() {
                 name="email"
                 className="form-control"
                 id="exampleFormControlInput1"
-                placeholder="name@example.com"
+                placeholder="markzuckerberg@facebook.com"
                 onChange={(e) => {
                   handleChange("email", e.target.value);
                 }}

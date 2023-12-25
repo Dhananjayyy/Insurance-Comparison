@@ -8,7 +8,7 @@ export const loggedSlice = createSlice({
     initialState: {
         loggedIn: false,
         id: 0,
-        userType: 'none', // Default userType is 'user'
+        userType: 'none',
     },
 
     // reducers
