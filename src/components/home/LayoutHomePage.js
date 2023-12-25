@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link} from "react-router-dom";
-import BikeInsurance from "./InsuranceProviders";
-import CarInsurance from "./Insurance";
 import HomePageMain from "./HomePage";
 import Support from "./Support";
 import LoginForm from "../LoginForm";
@@ -11,6 +9,7 @@ import InsuranceProviders from "./InsuranceProviders";
 
 export default function MainHomePage() {
   const [selectedLink, setSelectedLink] = useState(null);
+  const [loginKey, setLoginKey] = useState(0)
   // const mystate = useSelector((state) => state.logged);
 
   const renderComponent = () => {
@@ -22,12 +21,17 @@ export default function MainHomePage() {
       case "Support":
         return <Support />;
       case "Login":
-        return <LoginForm state={{show: true}} />;
+        return <LoginForm key={loginKey} state={{ show: true }} />;
       case "Register":
         return <Registration />;
       default:
         return <HomePageMain />;
     }
+  };
+
+  const handleLoginClick = () => {
+    setSelectedLink("Login");
+    setLoginKey((prevKey) => prevKey === 0 ? 1 : 0);
   };
 
   return (
@@ -95,9 +99,7 @@ export default function MainHomePage() {
           <div className="col text-center">
             <li className="nav-item">
               <div className="btn-group">
-                <button className="btn btn-outline-primary btn-block mr-2" onClick={() => {
-                  setSelectedLink("Login");
-                }}>
+                <button className="btn btn-outline-primary btn-block mr-2"  onClick={handleLoginClick}>
                   Login
                 </button>
                 <button className="btn btn-outline-dark btn-block" onClick={() => {

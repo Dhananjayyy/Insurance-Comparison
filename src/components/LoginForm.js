@@ -4,16 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ForgotPassword from "./ForgotPassword";
 
-export default function LoginForm() {
+export default function LoginForm(props) {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [displayAlert, setDisplayAlert] = useState(false);
   const [email, setEmail] = useState("");
   // const [isValidEmail, setIsValidEmail] = useState(false);
   const [dispMsg, setDispMsg] = useState("");
+  
   const [hideLogin, setHideLogin] = useState(false);
   const [forgotPasswordComponent, setForgotPasswordComponent] = useState(true);
 
+  console.log("Passed prop: "+JSON.stringify(props.state.show));
+  //setHideLogin(props.state.show);
 
   useEffect(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -89,9 +92,17 @@ export default function LoginForm() {
     
   };
 
+
+
 function handleLoginSwap(){
-  setHideLogin(true);
-  setForgotPasswordComponent(false)
+  if(props.state.show){
+    setHideLogin(true);
+    setForgotPasswordComponent(false)
+    return;
+  } else {
+    setHideLogin(false);
+    setForgotPasswordComponent(true)
+  } 
 }
  
 
