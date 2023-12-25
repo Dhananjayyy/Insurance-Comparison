@@ -6,17 +6,27 @@ export const loggedSlice = createSlice({
 
     // initial state
     initialState: {
-        loggedIn:false
+        loggedIn: false,
+        id: 0,
+        userType: 'none',
     },
 
     // reducers
     reducers: {
-        login: () => {return {loggedIn:true}},
-        logout: () => {return {loggedIn:false}}
+        login: (state, action) => {
+            const { id, userType } = action.payload;
+            state.loggedIn = true;
+            state.id = id;
+            state.userType = userType;
+        },
+        logout: (state) => {
+            state.loggedIn = false;
+            state.id = 0;
+            state.userType = 'none';
+        }
     }  
 })
 
-export const {login} = loggedSlice.actions;
-export const {logout} = loggedSlice.actions;
+export const { login, logout } = loggedSlice.actions;
 
 export default loggedSlice.reducer;

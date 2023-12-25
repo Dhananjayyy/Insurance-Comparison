@@ -10,10 +10,13 @@ import InsuranceProviders from "./InsuranceProviders";
 export default function MainHomePage() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [loginKey, setLoginKey] = useState(0)
+  
   // const mystate = useSelector((state) => state.logged);
 
   const renderComponent = () => {
     switch (selectedLink) {
+      case "Home":
+        return <HomePageMain/>
       case "Insurance":
         return <Insurance />;
       case "InsuranceProviders":
@@ -21,10 +24,11 @@ export default function MainHomePage() {
       case "Support":
         return <Support />;
       case "Login":
-        return <LoginForm key={loginKey} state={{ show: true }} />;
+        return <LoginForm key={loginKey} state={{ showForgotPasswordComponent: true }} />;
       case "Register":
         return <Registration />;
       default:
+        
         return <HomePageMain />;
     }
   };
@@ -35,17 +39,17 @@ export default function MainHomePage() {
   };
 
   return (
-    <div className="container mt-3">
+    <div className="container  mt-3">
       {/* login state: {mystate.loggedIn.toString()} */}
-      <ul className="nav navbar container border rounded navbar-nav justify-content-center mb-5">
+      <ul role="tablist" className="nav nav-pills danger navbar border rounded navbar-nav  justify-content-center mb-5">
         <div className="row w-100">
           {/* Home Link */}
           <div className="col text-center">
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={`nav-link ${selectedLink === "Home" ? 'active text-white bg-dark' : ''}`}
                 onClick={() => {
-                  setSelectedLink();
+                  setSelectedLink("Home");
                 }}
               >
                 Home
@@ -57,7 +61,7 @@ export default function MainHomePage() {
           <div className="col text-center">
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={`nav-link ${selectedLink === "Insurance" ? 'active text-white bg-dark' : ''}`}
                 onClick={() => {
                   setSelectedLink("Insurance");
                 }}
@@ -71,7 +75,7 @@ export default function MainHomePage() {
           <div className="col text-center">
             <li className="nav-item">
               <Link
-                className="nav-link"
+               className={`nav-link ${selectedLink === "InsuranceProviders" ? 'active text-white bg-dark' : ''}`}
                 onClick={() => {
                   setSelectedLink("InsuranceProviders");
                 }}
@@ -85,7 +89,7 @@ export default function MainHomePage() {
           <div className="col text-center">
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={`nav-link ${selectedLink === "Support" ? 'active text-white bg-dark' : ''}`}
                 onClick={() => {
                   setSelectedLink("Support");
                 }}
@@ -99,7 +103,7 @@ export default function MainHomePage() {
           <div className="col text-center">
             <li className="nav-item">
               <div className="btn-group">
-                <button className="btn btn-outline-primary btn-block mr-2"  onClick={handleLoginClick}>
+                <button className="btn btn-primary btn-block mr-2"  onClick={handleLoginClick}>
                   Login
                 </button>
                 <button className="btn btn-outline-dark btn-block" onClick={() => {
