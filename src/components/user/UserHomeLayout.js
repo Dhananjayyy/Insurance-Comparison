@@ -1,6 +1,6 @@
 import { useDispatch} from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyInsurances from "./MyInsurances";
 import UserHomePage from "./UserHomePage";
 import PersonalPlans from "./PersonalPlans";
@@ -16,6 +16,11 @@ export default function UserHome(props) {
   const handleLinkClick = (link) => {
     setSelectedLink(link);
   };
+
+  useEffect(() => {
+    console.log("home rendered")
+    setSelectedLink('home');
+  }, []);
 
   const renderComponent = () => {
     switch (selectedLink) {
