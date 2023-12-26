@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import MyInsurances from "./MyInsurances";
 import UserHomePage from "./UserHomePage";
 import PersonalPlans from "./PersonalPlans";
-import VehicleAnalysis from "./VehicleAnalysis";
+import Vehicle from "./Vehicle";
 import { logout } from "../loggedslice";
 
 export default function UserHome(props) {
@@ -18,7 +18,6 @@ export default function UserHome(props) {
   };
 
   useEffect(() => {
-    console.log("home rendered")
     setSelectedLink('home');
   }, []);
 
@@ -30,8 +29,8 @@ export default function UserHome(props) {
         return <MyInsurances />;
       case "personalplans":
         return <PersonalPlans/>
-      case "vehicleanalysis":
-        return <VehicleAnalysis/>
+      case "vehicle":
+        return <Vehicle/>
       default:
         return <UserHomePage/>;
     }
@@ -54,7 +53,7 @@ export default function UserHome(props) {
                   className={`nav-link ${selectedLink === "home" ? 'active text-white bg-dark' : ''}`}
                   onClick={() => handleLinkClick('home')}
                 >
-                  Home
+                  Dashboard
                 </Link>
               </li>
             </div>
@@ -84,10 +83,10 @@ export default function UserHome(props) {
             <div className="col text-center">
               <li className="nav-item ">
                 <Link
-                  className={`nav-link ${selectedLink === "vehicleanalysis" ? 'active text-white bg-dark' : ''}`}
-                  onClick={() => handleLinkClick('vehicleanalysis')}
+                  className={`nav-link ${selectedLink === "vehicle" ? 'active text-white bg-dark' : ''}`}
+                  onClick={() => handleLinkClick('vehicle')}
                 >
-                  Vehicle Analysis
+                  Vehicle
                 </Link>
               </li>
             </div>     

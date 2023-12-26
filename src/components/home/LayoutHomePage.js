@@ -12,7 +12,6 @@ export default function MainHomePage() {
   const [loginKey, setLoginKey] = useState(0)
   
   useEffect(() => {
-    console.log("home rendered")
     setSelectedLink('Home');
   }, []);
 
