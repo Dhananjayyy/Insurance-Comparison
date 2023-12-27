@@ -67,6 +67,7 @@ export default function LoginForm(props) {
         var login_status = data.login_status
         if (login_status) {
           if (parseInt(srole) === 0) {
+            console.log(JSON.stringify(data.result))
             dispatch(login({ id:data.result[0].UserID, userType:'user' }));
             navigate("/userhome", {state: {"id": data.result[0].UserID}});
           }

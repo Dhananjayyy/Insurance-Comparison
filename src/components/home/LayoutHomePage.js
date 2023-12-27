@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 import HomePageMain from "./HomePage";
 import Support from "./Support";
@@ -11,7 +11,9 @@ export default function MainHomePage() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [loginKey, setLoginKey] = useState(0)
   
-  // const mystate = useSelector((state) => state.logged);
+  useEffect(() => {
+    setSelectedLink('Home');
+  }, []);
 
   const renderComponent = () => {
     switch (selectedLink) {
@@ -32,7 +34,7 @@ export default function MainHomePage() {
         return <HomePageMain />;
     }
   };
-
+  
   const handleLoginClick = () => {
     setSelectedLink("Login");
     setLoginKey((prevKey) => prevKey === 0 ? 1 : 0);
