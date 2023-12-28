@@ -1,5 +1,4 @@
-import carimage from "./car.jpg"; // Import your car image
-
+import carimage from "./car.jpg";
 export default function VehicleCard(props) {
   //   const carCount = props.data.length;
   const carElements = props.data.map((car) => (
