@@ -129,7 +129,7 @@ export default function Registration() {
         break;
       case "pwd":
       case "repwd":
-        pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        pattern = /^[A-Z]{1,}[a-zA-Z0-9]{4,}$/;;
 
         if (!pattern.test(value)) {
           valid = false;
