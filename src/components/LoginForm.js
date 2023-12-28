@@ -69,11 +69,11 @@ export default function LoginForm(props) {
           if (parseInt(srole) === 0) {
             console.log(JSON.stringify(data.result))
             dispatch(login({ id:data.result[0].UserID, userType:'user' }));
-            navigate("/userhome", {state: {"id": data.result[0].UserID}});
+            navigate("/userhome");
           }
           if (parseInt(srole) === 1) {
             dispatch(login({ id:data.result[0].AdminID, userType:'admin' }));
-            navigate("/adminhome", {state: {"id": data.result[0].AdminID}});
+            navigate("/adminhome");
           }
           if (parseInt(srole) === 2) {
             dispatch(login({ id:data.result[0].ProviderID, userType:'provider' }));

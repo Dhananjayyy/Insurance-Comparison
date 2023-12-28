@@ -1,13 +1,8 @@
 import React, { useState, useReducer } from 'react';
-import LoginForm from './LoginForm';
-import { useLocation, useNavigate } from 'react-router-dom';
-import MainHomePage from './home/LayoutHomePage';
 
 
 function ForgotPassword() {
   
-
-    const navigate = useNavigate();
   const init = {
     emailId: { value: '', valid: false, touched: false, error: '' },
     setPassword: { value: '', valid: false, touched: false, error: '' },
@@ -42,7 +37,7 @@ function ForgotPassword() {
         }
         break;
       case 'setPassword':
-        pattern = /^[0-9]{4}$/;
+        pattern = /^[A-Z]{1,}[a-zA-Z0-9]{4,}$/;;
         if (!pattern.test(val)) {
           valid = false;
           error = 'Password not valid';

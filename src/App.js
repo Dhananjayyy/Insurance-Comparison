@@ -13,12 +13,13 @@ import Registration from "./components/RegistrationForm";
 import MyInsurances from "./components/user/MyInsurances";
 import AdminHomePage from "./components/admin/AdminHomePage";
 import AdminHomeLayout from "./components/admin/AdminHomeLayout";
-
+//import ErrorBoundry from "../node_modules/react-error-boundary/ErrorB"
 export default function App() {
   //const logintype = useSelector((state) => state.logged.userType);
   return (
     <>
       <Routes>
+        
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/userhome" element={<UserHome />} />
         <Route path="/adminhomepage" element={<AdminHomePage />} />
