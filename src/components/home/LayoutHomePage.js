@@ -42,7 +42,6 @@ export default function MainHomePage() {
 
   return (
     <div className="container  mt-3">
-      {/* login state: {mystate.loggedIn.toString()} */}
       <ul role="tablist" className="nav nav-pills danger navbar border rounded navbar-nav  justify-content-center mb-5">
         <div className="row w-100">
           {/* Home Link */}
